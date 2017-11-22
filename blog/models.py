@@ -5,6 +5,9 @@ from django.utils import timezone
 
 
 class Post(models.Model):
+    
+    objects = models.Manager()      # add so that some IDE (such as C9) won't complain about Post when used inviews.py
+
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
